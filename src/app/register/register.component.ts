@@ -1,10 +1,7 @@
-import {
-  Component,
-  inject,
-  output,
-} from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +10,8 @@ import { AccountService } from '../_services/account.service';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  accountService = inject(AccountService);
+  private accountService = inject(AccountService);
+  private toastr = inject(ToastrService);
   cancelRegister = output();
 
   model: any = {};
@@ -24,7 +22,7 @@ export class RegisterComponent {
         console.log(response);
         this.cancel();
       },
-      error: (error) => console.log(error),
+      error: (error) => this.toastr.error(error.error),
     });
   }
 

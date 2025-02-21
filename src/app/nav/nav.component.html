@@ -1,29 +1,34 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">Dating App</a>
+    <a class="navbar-brand" routerLink="/">Dating App</a>
 
-    @if(accountService.currentUser()){
     <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      @if(accountService.currentUser()){
+
       <li class="nav-item">
-        <a class="nav-link">Matches</a>
+        <a class="nav-link" routerLink="/members" routerLinkActive="active"
+          >Matches</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link">Lists</a>
+        <a class="nav-link" routerLink="/lists" routerLinkActive="active"
+          >Lists</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link">Messages</a>
+        <a class="nav-link" routerLink="/messages" routerLinkActive="active"
+          >Messages</a
+        >
       </li>
+
+      }
     </ul>
-    }
     <!-- Profile dropdown menu -->
     @if(accountService.currentUser()) {
     <div dropdown class="dropdown" placement="bottom right">
-      <a
-        href="#"
-        dropdownToggle
-        class="dropdown-toggle text-decoration-none text-white"
-        >Welcome User</a
-      >
+      <a dropdownToggle class="dropdown-toggle text-decoration-none text-white">
+        Hi, {{ loggedInUser() }}
+      </a>
       <div *dropdownMenu class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item">Edit Profile</a>
         <div class="dropdown-divider"></div>
@@ -54,7 +59,7 @@
         type="password"
         placeholder="Password"
       />
-      <button class="btn btn-outline-success" type="submit">Login</button>
+      <button class="btn btn-success" type="submit">Login</button>
     </form>
     }
   </div>
