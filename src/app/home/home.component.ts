@@ -1,7 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RegisterComponent } from '../register/register.component';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +8,7 @@ import { environment } from '../../environments/environment.development';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  env = environment;
   registerMode = false;
-
-  http = inject(HttpClient);
 
   registerToggle() {
     this.registerMode = !this.registerMode;
