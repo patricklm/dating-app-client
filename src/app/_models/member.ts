@@ -2,7 +2,7 @@ import { Photo } from './photo';
 
 export type Member = {
   id: number;
-  userName: string;
+  username: string;
   age: number;
   photoUrl: string;
   knownAs: string;
