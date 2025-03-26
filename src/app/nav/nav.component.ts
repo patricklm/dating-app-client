@@ -17,13 +17,13 @@ export class NavComponent {
   toastrService = inject(ToastrService);
   model: any = {};
 
-  loggedInUser = computed(() => {
-    const name = this.accountService.currentUser()?.username;
-    if (name)
-      return `${name[0].toUpperCase()}${name.slice(1).toLocaleLowerCase()}`;
+  // loggedInUser = computed(() => {
+  //   const name = this.accountService.currentUser()?.username;
+  //   if (name)
+  //     return `${name[0].toUpperCase()}${name.slice(1).toLocaleLowerCase()}`;
 
-    return 'Guest';
-  });
+  //   return 'Guest';
+  // });
   login() {
     this.accountService.login(this.model).subscribe({
       next: () => this.router.navigateByUrl('/members'),

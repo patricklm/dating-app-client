@@ -1,5 +1,7 @@
 export type User = {
   username: string;
-  token: string;
+  knownAs: string;
+  gender: string;
   photoUrl?: string;
+  token: string;
 };
